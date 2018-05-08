@@ -1,0 +1,11 @@
+---
+- hosts: all
+
+  tasks:
+    - name: copy zip
+      copy: 
+        src: ../files/linuxx64_12201_database.zip
+        dest: /tmp/linuxx64_12201_database.zip
+        mode: 0644
+        owner: root
+        group: root

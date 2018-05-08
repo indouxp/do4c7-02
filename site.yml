@@ -4,3 +4,5 @@
   become: no
 
 - import_playbook: roles/common/tasks/setup-init.yml
+- import_playbook: roles/common/tasks/setup-swap.yml
+- import_playbook: roles/common/tasks/setup-zip.yml
