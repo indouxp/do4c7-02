@@ -1,0 +1,6 @@
+---
+
+- hosts: all
+  become: no
+
+- import_playbook: roles/common/tasks/setup-init.yml
