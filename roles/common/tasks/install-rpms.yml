@@ -2,6 +2,8 @@
 - hosts: all
 
   tasks:
+    - name: yum update
+      shell:  yum update -y
     - name: yum install 
       yum: name={{ item }} state=present
       with_items:

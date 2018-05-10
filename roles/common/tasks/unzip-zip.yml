@@ -4,5 +4,5 @@
   become_user: oracle
 
   tasks:
-    - name: unzip
+    - name: unzip database.zip
       unarchive: src=../files/linuxx64_12201_database.zip dest=/home/oracle
