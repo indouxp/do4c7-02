@@ -5,9 +5,10 @@
 
 - import_playbook: roles/common/tasks/setup-init.yml
 - import_playbook: roles/common/tasks/setup-swap.yml
-- import_playbook: roles/common/tasks/setup-zip.yml
-#- import_playbook: roles/common/tasks/setup-firewalld.yml
 - import_playbook: roles/common/tasks/setup-virtual-memory.yml
 - import_playbook: roles/common/tasks/group.yml
 - import_playbook: roles/common/tasks/user.yml
-
+- import_playbook: roles/common/tasks/mkdir.yml
+- import_playbook: roles/common/tasks/unzip.yml
+- import_playbook: roles/common/tasks/yum.yml
+- import_playbook: roles/common/tasks/rsp.yml

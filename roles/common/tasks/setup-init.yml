@@ -10,6 +10,8 @@
       yum: name=git state=latest
     - name: yum install hdparm
       yum: name=hdparm state=latest
+    - name: yum install unzip
+      yum: name=unzip state=latest
     - name: mkdir ワークディレクトリの作成
       file:
         dest: /root/setup
