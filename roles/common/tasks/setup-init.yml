@@ -2,6 +2,7 @@
 - hosts: all
 
   tasks:
+
     - name: yum install tigervnc-server
       yum: name=tigervnc-server state=latest
     - name: yum install curl
@@ -14,7 +15,14 @@
       yum: name=unzip state=latest
     - name: yum install psmisc
       yum: name=psmisc state=latest
+
     - name: mkdir ワークディレクトリの作成
       file:
         dest: /root/setup
         state: directory
+
+    - name: digital ocean パフォーマンス表示
+      shell: curl -sSL https://agent.digitalocean.com/install.sh | sh
+      changed_when: False
+      register: curl_check
+      failed_when: curl_check.rc not in [ 0 ]

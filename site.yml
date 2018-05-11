@@ -2,6 +2,9 @@
 
 - hosts: all
   become: no
+  vars:
+    hosts:
+      - 167.99.76.151
 
 #- import_playbook: roles/common/tasks/setup-init.yml
 #- import_playbook: roles/common/tasks/setup-swap.yml
@@ -14,5 +17,7 @@
 #- import_playbook: roles/common/tasks/setup-sysctl.yml
 #- import_playbook: roles/common/tasks/setup-limits.yml
 #- import_playbook: roles/common/tasks/setup-rsp.yml
-- import_playbook: roles/common/tasks/setup-bashrc.yml
-- import_playbook: roles/common/tasks/run-dbca.yml
+#- import_playbook: roles/common/tasks/setup-bashrc.yml
+#- import_playbook: roles/common/tasks/run-dbca.yml
+- import_playbook: roles/common/tasks/setup-tnsnames.yml
+- import_playbook: roles/common/tasks/setup-listener.yml
