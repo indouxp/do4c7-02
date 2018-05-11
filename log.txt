@@ -1,0 +1,400 @@
+0 180511-215452 indou@tk2-259-39305:do4c7-02:$ ./run.sh 
+ [WARNING]: Found variable using reserved name: hosts
+
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+The authenticity of host '206.189.158.14 (206.189.158.14)' can't be established.
+ECDSA key fingerprint is SHA256:vwvC0xhrnnJbGoUbMKRwyFNeY0eDmHl8i/JShOIAc7Y.
+ECDSA key fingerprint is MD5:09:9e:e1:75:6f:6d:5b:db:fd:7f:cb:8b:f0:8a:8a:45.
+Are you sure you want to continue connecting (yes/no)? yes
+Enter passphrase for key '/home/indou/.ssh/id_rsa_do4sakura': 
+ok: [206.189.158.14]
+ [WARNING]: Found variable using reserved name: port
+
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [setup tnsnames.ora] ******************************************************
+fatal: [206.189.158.14]: FAILED! => {"changed": false, "checksum": "08d8676bfa6172c8265798291b74fad81a83829d", "msg": "Destination directory /u01/app/oracle/product/12.2.0/db_1/network/admin does not exist"}
+  to retry, use: --limit @/home/indou/work/do4c7-02/site.retry
+
+PLAY RECAP *********************************************************************
+206.189.158.14             : ok=2    changed=0    unreachable=0    failed=1   
+
+2 180511-215513 indou@tk2-259-39305:do4c7-02:$ vi site.yml
+0 180511-215542 indou@tk2-259-39305:do4c7-02:$ ./run.sh 
+ [WARNING]: Found variable using reserved name: hosts
+
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [yum install tigervnc-server] *********************************************
+changed: [206.189.158.14]
+
+TASK [yum install curl] ********************************************************
+changed: [206.189.158.14]
+
+TASK [yum install git] *********************************************************
+changed: [206.189.158.14]
+
+TASK [yum install hdparm] ******************************************************
+changed: [206.189.158.14]
+
+TASK [yum install unzip] *******************************************************
+changed: [206.189.158.14]
+
+TASK [yum install psmisc] ******************************************************
+changed: [206.189.158.14]
+
+TASK [mkdir ワークディレクトリの作成] ******************************************************
+changed: [206.189.158.14]
+
+TASK [digital ocean パフォーマンス表示] *************************************************
+ [WARNING]: Consider using the get_url or uri module rather than running curl.
+If you need to use command because get_url or uri is insufficient you can add
+warn=False to this command task or set command_warnings=False in ansible.cfg to
+get rid of this message.
+
+ok: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [copy make swap] **********************************************************
+changed: [206.189.158.14]
+
+TASK [run make swap] ***********************************************************
+ok: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [Create a file labeled 98-oracle-kernel.conf within /etc/sysctl.d/] *******
+changed: [206.189.158.14]
+
+TASK [sysctl -p] ***************************************************************
+ok: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [group] *******************************************************************
+changed: [206.189.158.14] => (item={u'gid': 54321, u'name': u'oinstall'})
+changed: [206.189.158.14] => (item={u'gid': 54322, u'name': u'dba'})
+changed: [206.189.158.14] => (item={u'gid': 54323, u'name': u'asmdba'})
+changed: [206.189.158.14] => (item={u'gid': 54324, u'name': u'asmoper'})
+changed: [206.189.158.14] => (item={u'gid': 54325, u'name': u'asmadmin'})
+changed: [206.189.158.14] => (item={u'gid': 54326, u'name': u'oper'})
+changed: [206.189.158.14] => (item={u'gid': 54327, u'name': u'backupdba'})
+changed: [206.189.158.14] => (item={u'gid': 54328, u'name': u'dgdba'})
+changed: [206.189.158.14] => (item={u'gid': 54329, u'name': u'kmdba'})
+changed: [206.189.158.14] => (item={u'gid': 54330, u'name': u'racdba'})
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [user] ********************************************************************
+changed: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [mkdir /u01/app/oracle] ***************************************************
+changed: [206.189.158.14]
+
+TASK [mkdir /u01/app/oraInventory] *********************************************
+changed: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [unzip database.zip] ******************************************************
+changed: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [yum update] **************************************************************
+ [WARNING]: Consider using the yum module rather than running yum.  If you need
+to use command because yum is insufficient you can add warn=False to this
+command task or set command_warnings=False in ansible.cfg to get rid of this
+message.
+
+changed: [206.189.158.14]
+
+TASK [yum install] *************************************************************
+changed: [206.189.158.14] => (item=[u'binutils', u'compat-libcap1', u'compat-libstdc++-33.i686', u'compat-libstdc++-33', u'gcc-c++', u'glibc.i686', u'glibc', u'glibc-devel.i686', u'glibc-devel', u'ksh', u'libaio.i686', u'libaio', u'libaio-devel.i686', u'libaio-devel', u'libgcc.i686', u'libgcc', u'libstdc++.i686', u'libstdc++', u'libstdc++-devel.i686', u'libstdc++-devel', u'libxcb.i686', u'libxcb', u'libX11.i686', u'libX11', u'libXau.i686', u'libXau', u'libXi.i686', u'libXi', u'libXtst.i686', u'libXtst', u'make', u'net-tools', u'smartmontools', u'sysstat'])
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [copy change-sysctl.sh] ***************************************************
+changed: [206.189.158.14]
+
+TASK [run change-sysctl.sh] ****************************************************
+ok: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [copy change-limits.sh] ***************************************************
+changed: [206.189.158.14]
+
+TASK [run change-limits.sh] ****************************************************
+ok: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [rsp install] *************************************************************
+changed: [206.189.158.14]
+
+TASK [shell install] ***********************************************************
+changed: [206.189.158.14]
+
+TASK [rsp install] *************************************************************
+ok: [206.189.158.14]
+
+TASK [/u01/app/oraInventory/orainstRoot.sh] ************************************
+changed: [206.189.158.14]
+
+TASK [/u01/app/oracle/product/12.2.0/db_1/root.sh] *****************************
+changed: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [copy bashrc] *************************************************************
+changed: [206.189.158.14]
+
+TASK [run bashrc.sh] ***********************************************************
+ok: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [copy run-dbca.sh] ********************************************************
+changed: [206.189.158.14]
+
+TASK [mkdir /oradata] **********************************************************
+changed: [206.189.158.14]
+
+TASK [run run-dbca.sh] *********************************************************
+
+
+ok: [206.189.158.14]
+ [WARNING]: Found variable using reserved name: port
+
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [setup tnsnames.ora] ******************************************************
+changed: [206.189.158.14]
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [206.189.158.14]
+
+TASK [setup listener.ora] ******************************************************
+changed: [206.189.158.14]
+
+PLAY RECAP *********************************************************************
+206.189.158.14             : ok=51   changed=27   unreachable=0    failed=0   
+
+0 180511-230704 indou@tk2-259-39305:do4c7-02:$ 
+0 180511-230704 indou@tk2-259-39305:do4c7-02:$ 
+
+[oracle@centos-s-2vcpu-4gb-sgp1-01 ~]$ ps -ef | grep ora
+oracle   13225     1  0 14:06 ?        00:00:00 ora_pmon_orcl
+oracle   13227     1  0 14:06 ?        00:00:00 ora_clmn_orcl
+oracle   13229     1  0 14:06 ?        00:00:00 ora_psp0_orcl
+oracle   13232     1  1 14:06 ?        00:00:01 ora_vktm_orcl
+oracle   13236     1  0 14:06 ?        00:00:00 ora_gen0_orcl
+oracle   13238     1  0 14:06 ?        00:00:00 ora_mman_orcl
+oracle   13242     1  0 14:06 ?        00:00:00 ora_gen1_orcl
+oracle   13246     1  0 14:06 ?        00:00:00 ora_diag_orcl
+oracle   13248     1  0 14:06 ?        00:00:00 ora_ofsd_orcl
+oracle   13252     1  0 14:06 ?        00:00:00 ora_dbrm_orcl
+oracle   13254     1  0 14:06 ?        00:00:00 ora_vkrm_orcl
+oracle   13256     1  0 14:06 ?        00:00:00 ora_svcb_orcl
+oracle   13258     1  0 14:06 ?        00:00:00 ora_pman_orcl
+oracle   13260     1  0 14:06 ?        00:00:00 ora_dia0_orcl
+oracle   13262     1  0 14:06 ?        00:00:00 ora_dbw0_orcl
+oracle   13264     1  0 14:06 ?        00:00:00 ora_lgwr_orcl
+oracle   13266     1  0 14:06 ?        00:00:00 ora_ckpt_orcl
+oracle   13268     1  0 14:06 ?        00:00:00 ora_lg00_orcl
+oracle   13270     1  0 14:06 ?        00:00:00 ora_smon_orcl
+oracle   13272     1  0 14:06 ?        00:00:00 ora_lg01_orcl
+oracle   13274     1  0 14:06 ?        00:00:00 ora_smco_orcl
+oracle   13276     1  0 14:06 ?        00:00:00 ora_reco_orcl
+oracle   13278     1  0 14:06 ?        00:00:00 ora_w000_orcl
+oracle   13280     1  0 14:06 ?        00:00:00 ora_lreg_orcl
+oracle   13282     1  0 14:06 ?        00:00:00 ora_w001_orcl
+oracle   13284     1  0 14:06 ?        00:00:00 ora_pxmn_orcl
+oracle   13288     1  2 14:06 ?        00:00:01 ora_mmon_orcl
+oracle   13290     1  0 14:06 ?        00:00:00 ora_mmnl_orcl
+oracle   13292     1  0 14:06 ?        00:00:00 ora_d000_orcl
+oracle   13294     1  0 14:06 ?        00:00:00 ora_s000_orcl
+oracle   13296     1  0 14:06 ?        00:00:00 ora_tmon_orcl
+oracle   13310     1  0 14:06 ?        00:00:00 ora_tt00_orcl
+oracle   13312     1  0 14:06 ?        00:00:00 ora_tt01_orcl
+oracle   13314     1  0 14:06 ?        00:00:00 ora_tt02_orcl
+oracle   13316     1  0 14:06 ?        00:00:00 ora_aqpc_orcl
+oracle   13319     1  0 14:06 ?        00:00:00 ora_cjq0_orcl
+oracle   13326     1  0 14:06 ?        00:00:00 ora_p000_orcl
+oracle   13328     1  0 14:06 ?        00:00:00 ora_p001_orcl
+oracle   13330     1  0 14:06 ?        00:00:00 ora_p002_orcl
+oracle   13332     1  0 14:06 ?        00:00:00 ora_p003_orcl
+oracle   13334     1  0 14:06 ?        00:00:00 ora_p004_orcl
+oracle   13336     1  0 14:06 ?        00:00:00 ora_p005_orcl
+oracle   13338     1  0 14:06 ?        00:00:00 ora_p006_orcl
+oracle   13340     1  0 14:06 ?        00:00:00 ora_p007_orcl
+oracle   13661     1  0 14:06 ?        00:00:00 ora_qm02_orcl
+oracle   13668     1  0 14:06 ?        00:00:00 ora_q002_orcl
+oracle   13672     1  0 14:06 ?        00:00:00 ora_q003_orcl
+root     13885 13864  0 14:07 pts/0    00:00:00 su - oracle
+oracle   13886 13885  0 14:07 pts/0    00:00:00 -bash
+oracle   13908 13886  0 14:07 pts/0    00:00:00 ps -ef
+oracle   13909 13886  0 14:07 pts/0    00:00:00 grep --color=auto ora
+[oracle@centos-s-2vcpu-4gb-sgp1-01 ~]$ lsnrctl start
+
+LSNRCTL for Linux: Version 12.2.0.1.0 - Production on 11-5月 -2018 14:07:57
+
+Copyright (c) 1991, 2016, Oracle.  All rights reserved.
+
+/u01/app/oracle/product/12.2.0/db_1/bin/tnslsnrを起動しています。お待ちください...
+
+TNSLSNR for Linux: Version 12.2.0.1.0 - Production
+システム・パラメータ・ファイルは/u01/app/oracle/product/12.2.0/db_1/network/admin/listener.oraです。
+ログ・メッセージを/u01/app/oracle/diag/tnslsnr/centos-s-2vcpu-4gb-sgp1-01/listener/alert/log.xmlに書き込みました。
+リスニングしています: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=centos-s-2vcpu-4gb-sgp1-01)(PORT=1521)))
+リスニングしています: (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
+
+(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=centos-s-2vcpu-4gb-sgp1-01)(PORT=1521)))に接続中
+リスナーのステータス
+------------------------
+別名                      LISTENER
+バージョン                TNSLSNR for Linux: Version 12.2.0.1.0 - Production
+開始日                    11-5月 -2018 14:07:57
+稼働時間                  0 日 0 時間 0 分 0 秒
+トレース・レベル          off
+セキュリティ              ON: Local OS Authentication
+SNMP                      OFF
+パラメータ・ファイル      /u01/app/oracle/product/12.2.0/db_1/network/admin/listener.ora
+ログ・ファイル            /u01/app/oracle/diag/tnslsnr/centos-s-2vcpu-4gb-sgp1-01/listener/alert/log.xml
+リスニング・エンドポイントのサマリー...
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=centos-s-2vcpu-4gb-sgp1-01)(PORT=1521)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
+リスナーはサービスをサポートしていません。
+コマンドは正常に終了しました。
+[oracle@centos-s-2vcpu-4gb-sgp1-01 ~]$ lsnrctl status
+
+LSNRCTL for Linux: Version 12.2.0.1.0 - Production on 11-5月 -2018 14:08:03
+
+Copyright (c) 1991, 2016, Oracle.  All rights reserved.
+
+(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=centos-s-2vcpu-4gb-sgp1-01)(PORT=1521)))に接続中
+リスナーのステータス
+------------------------
+別名                      LISTENER
+バージョン                TNSLSNR for Linux: Version 12.2.0.1.0 - Production
+開始日                    11-5月 -2018 14:07:57
+稼働時間                  0 日 0 時間 0 分 5 秒
+トレース・レベル          off
+セキュリティ              ON: Local OS Authentication
+SNMP                      OFF
+パラメータ・ファイル      /u01/app/oracle/product/12.2.0/db_1/network/admin/listener.ora
+ログ・ファイル            /u01/app/oracle/diag/tnslsnr/centos-s-2vcpu-4gb-sgp1-01/listener/alert/log.xml
+リスニング・エンドポイントのサマリー...
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=centos-s-2vcpu-4gb-sgp1-01)(PORT=1521)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
+リスナーはサービスをサポートしていません。
+コマンドは正常に終了しました。
+[oracle@centos-s-2vcpu-4gb-sgp1-01 ~]$ 
+
+[oracle@centos-s-2vcpu-4gb-sgp1-01 ~]$ lsnrctl status
+
+LSNRCTL for Linux: Version 12.2.0.1.0 - Production on 11-5月 -2018 14:08:49
+
+Copyright (c) 1991, 2016, Oracle.  All rights reserved.
+
+(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=centos-s-2vcpu-4gb-sgp1-01)(PORT=1521)))に接続中
+リスナーのステータス
+------------------------
+別名                      LISTENER
+バージョン                TNSLSNR for Linux: Version 12.2.0.1.0 - Production
+開始日                    11-5月 -2018 14:07:57
+稼働時間                  0 日 0 時間 0 分 51 秒
+トレース・レベル          off
+セキュリティ              ON: Local OS Authentication
+SNMP                      OFF
+パラメータ・ファイル      /u01/app/oracle/product/12.2.0/db_1/network/admin/listener.ora
+ログ・ファイル            /u01/app/oracle/diag/tnslsnr/centos-s-2vcpu-4gb-sgp1-01/listener/alert/log.xml
+リスニング・エンドポイントのサマリー...
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=centos-s-2vcpu-4gb-sgp1-01)(PORT=1521)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
+サービスのサマリー...
+サービス"orcl"には、1件のインスタンスがあります。
+  インスタンス"orcl"、状態READYには、このサービスに対する1件のハンドラがあります...
+サービス"orclXDB"には、1件のインスタンスがあります。
+  インスタンス"orcl"、状態READYには、このサービスに対する1件のハンドラがあります...
+コマンドは正常に終了しました。
+[oracle@centos-s-2vcpu-4gb-sgp1-01 ~]$
+[oracle@centos-s-2vcpu-4gb-sgp1-01 admin]$ sqlplus system/orclorcl@orcl
+
+SQL*Plus: Release 12.2.0.1.0 Production on 金 5月 11 14:14:32 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+最終正常ログイン時間: 金 5月  11 2018 13:39:47 +00:00
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+SQL> 
+SQL> 
+SQL> exit
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+[oracle@centos-s-2vcpu-4gb-sgp1-01 admin]$ 
+
