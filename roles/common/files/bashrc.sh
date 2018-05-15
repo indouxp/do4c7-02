@@ -1,10 +1,19 @@
 #!/bin/sh
+###############################################################################
+#
+# ~/.bashrcへの追記
+# 未定義の場合に限り、追記を行う。
+# 一度目の追記後は、ORACLE_BASEの定義があるため、何も行わない
+# 処理結果は、grep local0 /var/log/messageで確認。
+#
+###############################################################################
 
 NAME=${0##*/}
 BASHRC=~/.bashrc
 
 # 変更済みの判断は、ORACLE_BASEのみ
 if grep "ORACLE_BASE" ${BASHRC:?} > /dev/null; then
+  logger local0.err "${NAME:?}: grep fail. rc=${RC:?}" 
   exit 0
 fi
 
