@@ -11,14 +11,14 @@ MAIN() {
   IP=$1
 
   if [ -e hosts.org ]; then
-    if ! diff hosts.org hosts; then
+    if ! diff hosts.org hosts > /dev/null; then
       cp -pf hosts.org /tmp
     fi
   fi
   cp -p hosts hosts.org
 
   if [ -e site.yml.org ]; then
-    if ! diff site.yml.org site.yml; then
+    if ! diff site.yml.org site.yml > /dev/null; then
       cp -pf site.yml.org /tmp
     fi
   fi
@@ -37,7 +37,7 @@ CHECK() {
 
   # :?によるチェック
   echo ${HOSTS_FILE:?} > /dev/null
-  echo ${SITE_YML:?} > /dev/null
+  echo ${SITE_YML:?}   > /dev/null
 
   if [ ${HOSTS_FILE:?} = ${SITE_YML:?} ]; then
     echo "CHECK OK"
