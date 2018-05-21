@@ -13,7 +13,7 @@ BASHRC=~/.bashrc
 
 # 変更済みの判断は、ORACLE_BASEのみ
 if grep "ORACLE_BASE" ${BASHRC:?} > /dev/null; then
-  logger local0.err "${NAME:?}: grep fail. rc=${RC:?}" 
+  logger local0.err "${NAME:?}: grep fail." 
   exit 0
 fi
 
